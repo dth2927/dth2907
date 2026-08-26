@@ -1,10 +1,5 @@
 /*
 Chức năng：Mở khóa VIP cao cấp Meitu Xiuxiu
-Kịch bản：R·E
-Link App：https://apps.apple.com/cn/app/%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80/id416048305
-Phiên bản hỗ trợ：Phiên bản mới nhất trong AppStore 9.3.80
-Thời gian cập nhật：2022.1.17
-Tele：https://t.me/tienich
 */
 
 var responseBody = $response.body;
