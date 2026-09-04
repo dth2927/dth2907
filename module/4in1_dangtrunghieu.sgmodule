@@ -1,5 +1,5 @@
-#!name = YouTube, Spotify, Locket & Meitu (dth2927)
-#!desc = Crack Premium YouTube, Spotify, Locket và Meitu by dangtrunghieu
+#!name = YouTube, Spotify, Locket, Meitu & Alight Motion (dth2927)
+#!desc = Crack Premium YouTube, Spotify, Locket, Meitu và Alight Motion by dangtrunghieu
 #!author = dangtrunghieu
 
 [Rule]
@@ -34,8 +34,11 @@ deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(
 # Meitu VIP (dangtrunghieu)
 Meitu = type=http-response,pattern=^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/,requires-body=1,script-path=https://raw.githubusercontent.com/dth2927/dth2907/refs/heads/main/js/MeiTuXiuXiu.js
 
+# Alight Motion Pro (dangtrunghieu)
+AlightMotion = type=http-response,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses,requires-body=true,max-size=131072,timeout=10,enable=true,script-path=https://raw.githubusercontent.com/dth2927/dth2907/refs/heads/main/js/AlightMotion.js
+
 [Map Local]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200
 
 [MITM]
-hostname = %APPEND%, *.googlevideo.com, youtubei.googleapis.com, www.youtube.com, s.youtube.com, -redirector*.googlevideo.com, api.revenuecat.com, spclient.wg.spotify.com, *spclient.spotify.com, h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com
+hostname = %APPEND%, *.googlevideo.com, youtubei.googleapis.com, www.youtube.com, s.youtube.com, -redirector*.googlevideo.com, api.revenuecat.com, spclient.wg.spotify.com, *spclient.spotify.com, h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com, us-central1-alight-creative.cloudfunctions.net
