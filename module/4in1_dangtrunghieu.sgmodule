@@ -43,4 +43,4 @@ AlightMotion = type=http-response,pattern=^https:\/\/us-central1-alight-creative
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200
 
 [MITM]
-hostname = %APPEND%, *.googlevideo.com, youtubei.googleapis.com, www.youtube.com, s.youtube.com, -redirector*.googlevideo.com, api.revenuecat.com, spclient.wg.spotify.com, *spclient.spotify.com, h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com, us-central1-alight-creative.cloudfunctions.net
+hostname = %APPEND%, *.googlevideo.com, youtubei.googleapis.com, www.youtube.com, s.youtube.com, -redirector*.googlevideo.com, api.revenuecat.com, spclient.wg.spotify.com, *spclient.spotify.com, h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com, us-central1-alight-creative.cloudfunctions.net, firebaseremoteconfig.googleapis.com
