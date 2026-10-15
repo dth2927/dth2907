@@ -54,9 +54,9 @@ if (ua.includes("Locket")) {
             title: "Lên LocketGold rồi đó 😎",
             feature_set: [
                 {
-                    title: "Nhớ follow tiktok @dth2927 ✨",
-                    body: "Một follow của bạn, một niềm vui của mình 💛",
-                
+                    title: "Mày nhìn cái chó gì? ✨👀",
+                    body: "Tài khoản của bạn đã bị khoá 💛",
+                    
                 }
             ],
             primary_button_title: "Xong",
