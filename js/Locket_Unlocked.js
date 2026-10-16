@@ -579,7 +579,7 @@ if (ua.includes("Locket")) {
                         caption: {
                             background: { colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] },
                             max_lines: 1,
-                            text: "💻 duyvinh09",
+                            text: "💻 dangtrunghieu",
                             text_color: "#183153",
                             type: "static_content"
                         }
