@@ -1,6 +1,8 @@
 // ============================================================
 // Locket Remote Config Rewrite
+// Endpoint: firebaseremoteconfig.googleapis.com
 // Dùng cho: Loon / Quantumult X / Surge / Shadowrocket
+// Tác giả: @dth2927
 // ============================================================
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
@@ -49,24 +51,24 @@ if (ua.includes("Locket")) {
             tag: "LOCKET GOLD",
             tag_gradient: true,
             tag_style: "gold_gradient",
-            title: "chúc mừng bạn ",
+            title: "Lên LocketGold rồi đó 😎",
             feature_set: [
                 {
-                    title: "✨✨✨✨✨",
-                    body: "💛💛💛💛💛💛💛💛💛💛",
+                    title: "Mày nhìn cái chó gì? ✨👀",
+                    body: "Tài khoản của bạn đã bị khoá 💛",
                 }
             ],
-            primary_button_title: "done",
+            primary_button_title: "Xong",
             campaign: "locket_gold_welcome_v3",
-            start_at: "2007-09-02T00:00:00",
+            start_at: "2020-01-01T00:00:00",
             end_at: "2099-12-31T23:59:59",
             use_local_time_zone: true
         }),
         android_subscribe_gold_button_enabled: "false",
         profile_badge_visible: "true",
         lunar_new_year_app_icon_enabled: "true",
-        settings_instagram_url: "he he",
-        settings_tiktok_url: "hi hi"
+        settings_instagram_url: "https://www.instagram.com/hieuuu2907/",
+        settings_tiktok_url: "https://tiktok.com/@hieuu02092007"
     });
 
     // ============================================================
@@ -91,58 +93,39 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY (45S - TỐI ĐA 15MB)
+    // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY
     // ============================================================
-    var MY_VIDEO_DURATION = 45.0;
-    var MAX_15MB_BYTES = 15728640; // 15MB = 15 * 1024 * 1024 bytes
-    var VIDEO_BITRATE_15MB = 2.67;  // (15MB * 8) / 45s = 2.67 Mbps
-    
-    var cameraConfig = {
-        gold_max_duration: MY_VIDEO_DURATION,
-        goldMaxDuration: MY_VIDEO_DURATION,
-        max_duration: MY_VIDEO_DURATION,
-        maxDuration: MY_VIDEO_DURATION,
-        ultra_wide: true,
-        ultraWide: true,
-        volume_button: true,
-        volumeButton: true,
-        flash_button: true,
-        telephoto: true,
-        srgb: true,
-        lanczos: true,
-        quality_mbps: VIDEO_BITRATE_15MB,
-        qualityMbps: VIDEO_BITRATE_15MB,
-        max_file_size_mb: 15,
-        max_size_bytes: MAX_15MB_BYTES
-    };
-
-    var cameraRollConfig = {
-        gold_max_duration: MY_VIDEO_DURATION,
-        goldMaxDuration: MY_VIDEO_DURATION,
-        video_max_duration: MY_VIDEO_DURATION,
-        videoMaxDuration: MY_VIDEO_DURATION,
-        max_duration: MY_VIDEO_DURATION,
-        maxDuration: MY_VIDEO_DURATION,
-        trim_max_duration: MY_VIDEO_DURATION,
-        trimMaxDuration: MY_VIDEO_DURATION,
-        camera_roll_max_duration: MY_VIDEO_DURATION,
-        camera_roll_video_max_duration: MY_VIDEO_DURATION,
-        max_file_size: MAX_15MB_BYTES,       // Giới hạn file tối đa 15MB
-        max_upload_bytes: MAX_15MB_BYTES,    // Giới hạn tải lên tối đa 15MB
-        max_size_bytes: MAX_15MB_BYTES,
-        max_file_size_mb: 15,
-        quality_mbps: VIDEO_BITRATE_15MB,
-        qualityMbps: VIDEO_BITRATE_15MB,
-        flash_button: true
-    };
-
-    obj.entries.camera = JSON.stringify(cameraConfig);
-    obj.entries.camera_roll = JSON.stringify(cameraRollConfig);
-
-    var durationStr = MY_VIDEO_DURATION.toString();
-    var bytesStr = MAX_15MB_BYTES.toString();
-
     Object.assign(obj.entries, {
+        camera: JSON.stringify({
+            gold_max_duration: 30.0,
+            goldMaxDuration: 30.0,
+            max_duration: 30.0,
+            maxDuration: 30.0,
+            ultra_wide: true,
+            ultraWide: true,
+            volume_button: true,
+            volumeButton: true,
+            flash_button: true,
+            telephoto: true,
+            srgb: true,
+            lanczos: true,
+            quality_mbps: 0.9,
+            qualityMbps: 0.9
+        }),
+        camera_roll: JSON.stringify({
+            gold_max_duration: 30.0,
+            goldMaxDuration: 30.0,
+            video_max_duration: 30.0,
+            videoMaxDuration: 30.0,
+            max_duration: 30.0,
+            maxDuration: 30.0,
+            trim_max_duration: 30.0,
+            trimMaxDuration: 30.0,
+            camera_roll_max_duration: 30.0,
+            quality_mbps: 0.9,
+            qualityMbps: 0.9,
+            flash_button: true
+        }),
         live_photos: JSON.stringify({
             capture: true,
             viewing: true,
@@ -177,20 +160,16 @@ if (ua.includes("Locket")) {
         camera_roll_video_upload_enabled: "true",
         internal_camera_roll_video_upload_enabled: "true",
         longer_camera_roll_videos_enabled: "true",
-        camera_roll_video_max_duration: durationStr,
-        camera_roll_max_duration: durationStr,
-        camera_roll_duration: durationStr,
-        max_video_duration: durationStr,
-        video_max_duration: durationStr,
-        video_trim_max_duration: durationStr,
-        trim_max_duration: durationStr,
-        gold_max_duration: durationStr,
-        goldMaxDuration: durationStr,
-        max_file_size: bytesStr,
-        max_upload_bytes: bytesStr,
-        video_max_size_bytes: bytesStr,
-        video_max_file_size_mb: "15",
-        video_quality_mbps: "2.67",
+        camera_roll_video_max_duration: "30.0",
+        camera_roll_max_duration: "30.0",
+        camera_roll_duration: "30.0",
+        max_video_duration: "30.0",
+        video_max_duration: "30.0",
+        video_trim_max_duration: "30.0",
+        trim_max_duration: "30.0",
+        gold_max_duration: "30.0",
+        goldMaxDuration: "30.0",
+        video_quality_mbps: "0.9",
         video_sound_enabled: "true",
         microphone_enabled: "true",
         camera_microphone_enabled: "true",
@@ -308,10 +287,10 @@ if (ua.includes("Locket")) {
         widget_sync_token_reload_mode: "clearTokenNever",
         widget_frame_event: JSON.stringify({
             uid: "midautumn_2026",
-            url: "https://i.ibb.co/R4gh8WHW/Khung-n-ng-l-ng-Saiyan-neon-trong-su-t.png",
+            url: "https://i.ibb.co/1Yt1Dzzy/Shin-chan-1.png",
             use_local_time_zone: true,
             placement: "below",
-            start_at: "2007-09-02T00:00:00",
+            start_at: "2020-01-01T00:00:00",
             end_at: "2099-12-31T23:59:59"
         }),
         live_activity_onboarding: "true",
@@ -340,82 +319,48 @@ if (ua.includes("Locket")) {
         custom_profile_pics: "true",
         profile_menu_v2_enabled: "true"
     });
-    
+
     // ============================================================
-    // 7. HỆ THỐNG, CUSTOM WIDGET FRAMES & STORAGE
+    // 7. HỆ THỐNG, CACHE & STORAGE CDN
     // ============================================================
     Object.assign(obj.entries, {
-        widget_frame_event_max_images: "10",
-        android_widget_frame_event_enabled: "true",
-        widget_badge_enabled: "true",
-        widget_badge_v2: "true",
-        widget_stale_state_enabled: "false",
-        widget_last_sent_indicator: "false",
-        widget_sync_token_reload_mode: "clearTokenNever",
-        
-        custom_widget_frames: "enabled",
-        custom_widget_frames_enabled: "true",
-        
-        widget_frames_config: JSON.stringify({
-            enabled: true,
-            allow_custom_frames: true,
-            unlock_all_styles: true,
-            default_style: "royal_gold_vip",
-            styles: [
-                {
-                    id: "royal_gold_vip",
-                    name: "👑 VIP Royal Gold",
-                    border_style: "ornate_gold",
-                    crown_badge: true,
-                    badge_text: "VIP",
-                    corner_radius: 28.0,
-                    glow_effect: true,
-                    glow_color: "#FFD700",
-                    overlay_asset: "royal_crown_frame"
-                }
-            ]
+        cdn_domain_replacements: JSON.stringify({
+            "firebasestorage.googleapis.com": "cdn.locketcamera.com"
         }),
-
-        widget_frame_styles: JSON.stringify([
-            "royal_gold_vip",
-            "gold_luxury",
-            "classic"
-        ]),
-
-        seasonal_frames_config: JSON.stringify({
-            enabled: true,
-            auto_rotate: false,
-            override_default: true,
-            current_season_theme: "royal_gold_vip"
-        }),
-
-        live_activity_onboarding: "true",
-        live_activity_onboarding_variant: "friending",
-        register_live_activity_push_to_start_token: "true",
-        live_activity_remove_stale_start_token: "true",
-        notification_preferences_live_activities: "true",
-        notification_preferences: "true",
-        notification_reply_body_visible: "true",
-        prompt_notification_permissions_after_friending: "true",
-        activity_bar_enabled: "true",
-        journal_activity_bar_enabled: "true",
-        
-        journal_settings: JSON.stringify({
-            debug_menu_enabled: false,
-            focus_animation: true,
-            compact_header: true,
-            friends_button: true,
-            reverse_scroll_direction: false,
-            streak_visualization: true,
-            streak_visualization_style: "gradient",
-            streak_header_minimum_count: 0,
-            streak_visualization_minimum_count: 2,
-            overlay_indicators: { location: true, music: true, static_content: true, weather: true }
-        }),
-        
-        qr_code_config: JSON.stringify({ profile_enabled: true, scanning_enabled: true }),
-        custom_profile_pics: "true",
-        profile_menu_v2_enabled: "true"
+        cdn_domain_replacements_video: "true",
+        storage_bucket: "gs://locket-img",
+        storage_bucket_video: "gs://locket-video",
+        image_cache_max_age_sec: "157680000",
+        image_cache_max_size: "400000000",
+        history_cache_age_days: "1000",
+        user_cache_max_age_sec: "691200",
+        friends_cache_max_age_sec: "2592000",
+        image_fetch_cache: "true",
+        image_cache_use_shared: "true",
+        use_doc_dir_for_image_cache: "true",
+        efficient_history_cache_invalidation: "true",
+        timestamp_based_history_fetches: "true",
+        get_latest_moment_v2: "true",
+        fetch_users_from_cloud_function: "true",
+        refresh_interval: "60",
+        firestore_refresh_v2: "true",
+        firestore_refresh_v3: "true",
+        keychain_access_retries: "true",
+        blocked_users_cached_sync_enabled: "true",
+        beta_features_enabled: "true",
+        join_testflight_enabled: "true",
+        safety_center: "true",
+        help_center: "true",
+        support_v2: "true",
+        privacy_choices_setting: "true",
+        request_att_permission: "true",
+        invite_link_preview_variant: "4",
+        share_history_config: JSON.stringify({ prompt_enabled: false, fetching_enabled: true }),
+        share_history_prompt_enabled: "false",
+        use_thumbnails_for_sharing: "true",
+        use_thumbnails_in_timeline: "true",
+        persist_onboarding_step: "true",
+        onboarding_contact_permission_step: "true"
     });
 
     // ============================================================
@@ -431,7 +376,7 @@ if (ua.includes("Locket")) {
         overlay_dynamic_captions: JSON.stringify([
             "standard", "poll", "color_palette", "review", "music", "location",
             "weather", "time", "streak", "star_sign", "party_time", "locket_count",
-            "good_morning", "goodnight", "ootd", "miss_you", "custom", "dating_time", "phunu_2010", "halloween_2026"
+            "good_morning", "goodnight", "ootd", "miss_you", "custom", "phunu_2010", "halloween_2026"
         ]),
         overlay_items: JSON.stringify([
             {
@@ -548,6 +493,17 @@ if (ua.includes("Locket")) {
                 section: "🎨 Decorative by Locket",
                 items: [
                     {
+                        overlay_id: "caption:toi_nho_em",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#FFFFFF", "#6D9EEB"] },
+                            max_lines: 1,
+                            text: "보고 싶어 🥺",
+                            text_color: "#000000E6",
+                            type: "static_content"
+                        }
+                    },
+                    {
                         overlay_id: "caption:party_time",
                         source: "remote",
                         caption: {
@@ -614,28 +570,15 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨🎨🎨🎨🎨🎨",
+                section: "🎨 Decorative by Duy Vinh",
                 items: [
                     {
-                        overlay_id: "caption:dating_time",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#E91E63", "#F44336"] },
-                            icon: { data: "💕", type: "emoji" },
-                            max_lines: 1,
-                            text: "bắt đầu từ 02/09/2007",
-                            localized_text: { en: "Since 02/09/2007", vn: "bắt đầu từ 02/09/2007" },
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:nca",
+                        overlay_id: "caption:duyvinh09",
                         source: "remote",
                         caption: {
                             background: { colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] },
                             max_lines: 1,
-                            text: "nguyencongan",
+                            text: "💻 duyvinh09",
                             text_color: "#183153",
                             type: "static_content"
                         }
@@ -661,18 +604,6 @@ if (ua.includes("Locket")) {
                             max_lines: 1,
                             text: "Cu 🐎",
                             text_color: "#633B24",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:tuat",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#2C1A0E", "#5D4037", "#D7A86E"] },
-                            icon: { data: "🐕", type: "emoji" },
-                            max_lines: 1,
-                            text: "Tuất",
-                            text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
                     },
@@ -766,6 +697,18 @@ if (ua.includes("Locket")) {
                         }
                     },
                     {
+                        overlay_id: "caption:dating_time",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#E91E63", "#F44336"] },
+                            icon: { data: "💕", type: "emoji" },
+                            max_lines: 1,
+                            text: "Dating Time!",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
                         overlay_id: "caption:graduation_day",
                         source: "remote",
                         caption: {
@@ -820,7 +763,7 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨 Độc lạ",
+                section: "🌸 Độc lạ",
                 items: [
                     {
                         overlay_id: "caption:xin_vinh_biet_cu",
@@ -842,18 +785,6 @@ if (ua.includes("Locket")) {
                             icon: { data: "🏃💨", type: "emoji" },
                             max_lines: 1,
                             text: "Chạy ngay đi",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:luc_nao_co_tien_thi_moi_di_a",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#0F2027", "#203A43", "#2C5364"] },
-                            icon: { data: "💸", type: "emoji" },
-                            max_lines: 1,
-                            text: "Lúc nào có tiền thì mới đi á",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
@@ -1109,11 +1040,11 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFF",
                             type: "static_content"
                         }
-                    },
+                    }
                 ]
             },
             {
-                section: "🎨 Trend TikTok",
+                section: "🌸 Trend TikTok",
                 items: [
                     {
                         overlay_id: "caption:hoi_chieu_troi_mua",
@@ -1140,78 +1071,6 @@ if (ua.includes("Locket")) {
                         }
                     },
                     {
-                        overlay_id: "caption:gian_dang_iu_hong",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#3E2723", "#6D4C41", "#A1887F"] },
-                            icon: { data: "🪳", type: "emoji" },
-                            max_lines: 1,
-                            text: "Gián đáng iu hong",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:nau_xoi",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#7B1FA2", "#E91E63", "#FFB74D"] },
-                            icon: { data: "🙀", type: "emoji" },
-                            max_lines: 1,
-                            text: "Nấu xói",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:co_tien_lam_phien_thien_ha",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#0F0C29", "#302B63", "#F7971E", "#FFD200"] },
-                            icon: { data: "💰", type: "emoji" },
-                            max_lines: 1,
-                            text: "Có tiền làm phiền thiên hạ",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:nguoi_im_lang_gap_nguoi_hay_noi",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#232526", "#414345", "#6C7A89", "#B0BEC5"] },
-                            icon: { data: "🤐", type: "emoji" },
-                            max_lines: 1,
-                            text: "Người im lặng gặp người hay nói",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:roi_let_luon",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#FF9A9E", "#FECFEF", "#FBC2EB", "#A6C1EE"] },
-                            icon: { data: "💅", type: "emoji" },
-                            max_lines: 1,
-                            text: "rồi lét luôn",
-                            text_color: "#000000E6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:roi_gay_luon",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#FF6EC7", "#7873F5", "#4ADEDE", "#FFE66D"] },
-                            icon: { data: "🌈", type: "emoji" },
-                            max_lines: 1,
-                            text: "rồi gay luôn",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
                         overlay_id: "caption:tuyet_doi_khong_nghe",
                         source: "remote",
                         caption: {
@@ -1220,78 +1079,6 @@ if (ua.includes("Locket")) {
                             max_lines: 1,
                             text: "Tuyệt đối không nghe",
                             text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:cha_nay_tu_luyen_ghe",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#FFDEE9", "#B5FFFC", "#FAD0C4", "#FFD1FF"] },
-                            icon: { data: "🪞", type: "emoji" },
-                            max_lines: 1,
-                            text: "Cha này tự luyến ghê",
-                            text_color: "#000000E6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:co_bien_co_bien",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#FF512F", "#F09819", "#FFD200"] },
-                            icon: { data: "🚨", type: "emoji" },
-                            max_lines: 1,
-                            text: "Có biến có biến",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:hong_drama",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#8A2387", "#E94057", "#F27121"] },
-                            icon: { data: "🍿", type: "emoji" },
-                            max_lines: 1,
-                            text: "Hóng drama",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:cuoi_vcl_m_oi",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#F7971E", "#FFD200", "#FFEE58"] },
-                            icon: { data: "😂", type: "emoji" },
-                            max_lines: 1,
-                            text: "Cười vcl m oi",
-                            text_color: "#000000E6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:vl_m_oi",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#1F1C2C", "#928DAB", "#C9D6FF"] },
-                            icon: { data: "😳", type: "emoji" },
-                            max_lines: 1,
-                            text: "vl m ơi?",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:noi_het_bi_mat_thi_co_yeu_hong",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#EE9CA7", "#FFDDE1", "#C6FFDD", "#FBD786"] },
-                            icon: { data: "🤫", type: "emoji" },
-                            max_lines: 1,
-                            text: "Nói hết bị mật thì có yêu hong",
-                            text_color: "#000000E6",
                             type: "static_content"
                         }
                     },
@@ -1340,18 +1127,6 @@ if (ua.includes("Locket")) {
                             max_lines: 1,
                             text: "oách xà lách",
                             text_color: "#FFFFFF",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:lai_phai_lo",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#FBD3E9", "#BB377D", "#6A0572"] },
-                            icon: { data: "💔", type: "emoji" },
-                            max_lines: 1,
-                            text: "lại phải lọ",
-                            text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
                     },
@@ -1550,7 +1325,7 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨 Gen Z Life 🩻",
+                section: "Gen Z Life 🩻",
                 items: [
                     {
                         overlay_id: "caption:hao_han",
@@ -1675,7 +1450,7 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨 Meme vui nhộn",
+                section: "🌸 Meme vui nhộn",
                 items: [
                     {
                         overlay_id: "caption:cuoi_xiu",
@@ -1728,7 +1503,7 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨 Đời sống",
+                section: "🌸 Đời sống",
                 items: [
                     {
                         overlay_id: "caption:ngay_moi_vui_ve",
@@ -1781,7 +1556,7 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨 Gen Z Slay",
+                section: "🌸 Gen Z Slay",
                 items: [
                     {
                         overlay_id: "caption:tinh_hoa_hoi_tu",
@@ -1834,7 +1609,7 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨 Bất ổn & Khó đỡ",
+                section: "🌸 Bất ổn & Khó đỡ",
                 items: [
                     {
                         overlay_id: "caption:luon_vui_tuoi",
@@ -1887,7 +1662,7 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨 Check VAR & Hóng hớt",
+                section: "🌸 Check VAR & Hóng hớt",
                 items: [
                     {
                         overlay_id: "caption:check_var",
@@ -1940,7 +1715,7 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨 Góc Deadline & Đi Làm",
+                section: "🌸 Góc Deadline & Đi Làm",
                 items: [
                     {
                         overlay_id: "caption:deadline_ruot",
@@ -1950,18 +1725,6 @@ if (ua.includes("Locket")) {
                             icon: { data: "🔥", type: "emoji" },
                             max_lines: 1,
                             text: "Deadline dí tụt quần",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:ca_o_ran_doc",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#0F2027", "#1B5E20", "#66BB6A"] },
-                            icon: { data: "🐍", type: "emoji" },
-                            max_lines: 1,
-                            text: "Cả ổ rắn độc",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
