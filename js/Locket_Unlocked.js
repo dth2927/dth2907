@@ -56,6 +56,7 @@ if (ua.includes("Locket")) {
                 {
                     title: "Mày nhìn cái chó gì? ✨👀",
                     body: "Tài khoản của bạn đã bị khoá 💛",
+                    
                 }
             ],
             primary_button_title: "Xong",
@@ -1040,7 +1041,7 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFF",
                             type: "static_content"
                         }
-                    }
+                    },
                 ]
             },
             {
